@@ -21,6 +21,29 @@
 
             font-family: 'Poppins', sans-serif;
         }
+        /* MAP TURUN DARI ATAS */
+.fade-down-map {
+    opacity: 0;
+    transform: translateY(-60px);
+    transition: all 1s cubic-bezier(0.22,1,0.36,1);
+}
+
+.fade-down-map.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* TEKS NAIK DARI BAWAH */
+.fade-up-text {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s cubic-bezier(0.22,1,0.36,1);
+}
+
+.fade-up-text.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
         .reveal {
             opacity: 0;
@@ -94,6 +117,35 @@
                 transform: scale(1);
             }
         }
+        /* GLASS CARD */
+.glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ANIMASI KHUSUS PAGE 4 */
+.fade-up-soft {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.fade-up-soft.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.zoom-soft {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s ease;
+}
+
+.zoom-soft.show {
+    opacity: 1;
+    transform: scale(1);
+}
 
         .bg-zoom {
             animation: bgZoom 2s ease forwards;
@@ -310,6 +362,107 @@
 
     </div>
 
+    <!-- PAGE 3 -->
+<div id="page3"
+    class="relative min-h-screen text-white flex items-center justify-center overflow-hidden bg-cover bg-center"
+    style="background-image: url('bg3.png');">
+
+    <!-- OVERLAY (biar teks tetap kebaca) -->
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <!-- CONTENT -->
+    <div class="relative z-10 w-full max-w-4xl px-6 text-center space-y-10">
+
+        <!-- JUDUL -->
+        <h2 class="reveal font-brush text-4xl md:text-6xl">
+            Location
+        </h2>
+
+        <!-- MAP -->
+        <div class="fade-down-map overflow-hidden rounded-2xl shadow-lg">
+
+            <iframe
+                src="https://www.google.com/maps?q=-7.750723,113.473926&output=embed"
+                class="w-full h-[350px] md:h-[450px] border-0">
+            </iframe>
+
+        </div>
+
+        <!-- ALAMAT -->
+        <div class="fade-up-text">
+            <p class="text-sm md:text-lg leading-relaxed opacity-90">
+                Desa Sumberan RT 02 RW 01<br>
+                Kecamatan Besuk<br>
+                Kabupaten Probolinggo
+            </p>
+        </div>
+
+    </div>
+
+</div>
+<!-- PAGE 4 -->
+<div id="page4"
+    class="relative min-h-screen text-white flex items-center justify-center overflow-hidden">
+
+    <!-- VIDEO BACKGROUND -->
+    <video autoplay muted loop playsinline
+        class="absolute inset-0 w-full h-full object-cover z-0">
+        <source src="2.mp4" type="video/mp4">
+    </video>
+
+    <!-- OVERLAY -->
+    <div class="absolute inset-0 bg-black/70 z-10"></div>
+
+    <!-- CONTENT -->
+    <div class="relative z-20 w-full max-w-xl px-6 text-center space-y-8">
+
+        <!-- JUDUL -->
+        <h2 class="fade-up-soft font-brush text-4xl md:text-6xl">
+            Wedding Gift
+        </h2>
+
+        <!-- DESKRIPSI -->
+        <p class="fade-up-soft text-sm md:text-base leading-relaxed opacity-90 italic">
+            Kehadiran serta doa restu Anda adalah kebahagiaan bagi kami.
+            Apabila berhalangan untuk hadir, 
+            Anda tetap dapat menyampaikan doa dan kasih melalui:
+        </p>
+
+        <!-- CARD -->
+        <div class="zoom-soft glass rounded-2xl p-6 space-y-4">
+
+            <p class="text-lg font-serif tracking-wide">
+                Bank Mandiri
+            </p>
+
+            <p class="text-2xl md:text-3xl tracking-widest">
+                1430030105892
+            </p>
+
+            <p class="text-sm opacity-80">
+                a.n Muhammad Abdullah Arridho
+            </p>
+
+            <!-- BUTTON -->
+            <button onclick="copyRek()"
+                class="mt-4 px-6 py-3 rounded-full text-sm font-semibold
+                       bg-white text-black border border-white
+                       shadow-lg
+                       hover:bg-transparent hover:text-white transition duration-300">
+                Salin Nomor Rekening
+            </button>
+
+        </div>
+
+        <!-- PENUTUP -->
+        <p class="fade-up-soft text-xs opacity-70">
+            Terima kasih atas doa dan restu yang diberikan 🙏
+        </p>
+
+    </div>
+
+</div>
+
     <script>
         function invitation() {
             return {
@@ -323,7 +476,7 @@
 
                     // 🔥 SCROLL REVEAL
                     window.addEventListener("scroll", () => {
-                        const reveals = document.querySelectorAll(".reveal");
+                        const reveals = document.querySelectorAll(".reveal, .fade-down-map, .fade-up-text, .fade-up-soft, .zoom-soft");
 
                         reveals.forEach(el => {
                             const windowHeight = window.innerHeight;
@@ -347,7 +500,7 @@
                             this.opened = true;
 
                             // animasi halaman awal
-                            setTimeout(() => {
+                            setTimeout(() => {  
                                 document.querySelectorAll('.fade-up, .fade-down, .zoom-in').forEach(el => {
                                     el.classList.remove('show');
                                     void el.offsetWidth;
@@ -358,6 +511,7 @@
                         }, 400);
                     }
                 },
+ 
 
                 scrollToPage1() {
                     document.body.classList.remove('no-scroll');
@@ -383,6 +537,17 @@
                 }
             }
         }
+        function copyRek() {
+    const text = "1430030105892";
+
+    navigator.clipboard.writeText(text)
+        .then(() => {
+            alert("Nomor rekening berhasil disalin ✅");
+        })
+        .catch(() => {
+            alert("Gagal menyalin, silakan copy manual 🙏");
+        });
+}
     </script>
 
 </body>
