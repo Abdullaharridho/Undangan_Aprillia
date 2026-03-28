@@ -21,7 +21,7 @@
 
             font-family: 'Poppins', sans-serif;
         }
-        /* MAP TURUN DARI ATAS */
+        
 .fade-down-map {
     opacity: 0;
     transform: translateY(-60px);
@@ -33,7 +33,7 @@
     transform: translateY(0);
 }
 
-/* TEKS NAIK DARI BAWAH */
+
 .fade-up-text {
     opacity: 0;
     transform: translateY(60px);
@@ -117,14 +117,14 @@
                 transform: scale(1);
             }
         }
-        /* GLASS CARD */
+       
 .glass {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* ANIMASI KHUSUS PAGE 4 */
+
 .fade-up-soft {
     opacity: 0;
     transform: translateY(40px);
@@ -169,7 +169,7 @@
 
     <div x-data="invitation()" x-init="init()" class="min-h-screen relative overflow-hidden">
 
-        <!-- POPUP -->
+        
         <div x-show="showPopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
 
             <div
@@ -188,17 +188,17 @@
             </div>
         </div>
 
-        <!-- BACKGROUND -->
+      
         <div class="absolute inset-0 bg-cover bg-center" :class="opened ? 'bg-zoom' : ''"
             style="background-image: url('1.jpeg');">
         </div>
 
         <div class="absolute inset-0 bg-black/30"></div>
 
-        <!-- HEADER -->
+      
         <div class="relative h-[25vh] flex items-center justify-center text-white text-center z-10" x-show="opened">
 
-            <!-- SVG -->
+           
             <svg class="absolute inset-0 w-full h-full">
                 <defs>
                     <mask id="curveMask">
@@ -216,7 +216,7 @@
 
         </div>
 
-        <!-- TEXT -->
+     
         <div class="relative z-10 h-[35vh] flex flex-col items-center justify-center text-white text-center mt-[35vh]">
 
             <p class="fade-up">Dear</p>
@@ -233,10 +233,10 @@
 
     </div>
 
-    <!-- PAGE 1 -->
+  
     <div id="page1" class="relative min-h-screen bg-black text-white flex items-center justify-center overflow-hidden">
 
-        <!-- VIDEO BACKGROUND -->
+        
         <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover">
             <source src="page1.mp4" type="video/mp4">
         </video>
@@ -244,10 +244,10 @@
         <!-- OVERLAY -->
         <div class="absolute inset-0 bg-black/60"></div>
 
-        <!-- KONTAINER TEKS -->
+     
         <div class="relative z-10 w-full h-full flex flex-col justify-between text-center px-6 py-12 max-w-2xl mx-auto">
 
-            <!-- ATAS -->
+          
             <div class="fade-up opacity-0" style="animation-delay:0.3s;">
                 <p class="text-sm italic leading-relaxed opacity-90">
                     "Dan di antara tanda-tanda kebesaran-Nya, Dia menciptakan pasangan untukmu dari jenismu sendiri,
@@ -255,10 +255,10 @@
                 </p>
             </div>
 
-            <!-- TENGAH -->
+           
             <div class="flex flex-col items-center justify-center flex-1 text-center">
 
-                <!-- PENGANTIN PRIA -->
+              
                 <h2 class="mt-10 fade-up font-serif text-3xl md:text-5xl mb-1 tracking-wide opacity-0"
                     style="animation-delay:0.6s;">
                     Muhammad Abdullah Arridho
@@ -268,12 +268,12 @@
                     Putra dari Sudiman & Awani
                 </p>
 
-                <!-- PEMISAH -->
+             
                 <p class="fade-up text-lg opacity-0 mb-4" style="animation-delay:1s;">
                     &
                 </p>
 
-                <!-- PENGANTIN WANITA -->
+          
                 <h2 class="fade-up font-serif text-2xl md:text-4xl mb-1 tracking-wide opacity-0"
                     style="animation-delay:1.2s;">
                     Aprillia Pusvita Sari
@@ -285,38 +285,38 @@
 
             </div>
 
-            <!-- BAWAH -->
+          
             <div class="fade-up opacity-0" style="animation-delay:1.5s;">
                 <p class="text-xs tracking-[4px] uppercase opacity-70">Save The Date</p>
-                <p class="text-xl">Rabu, 3 Juni 2026</p>
+                <p class="text-xl">Rabu, 7 Juni 2026</p>
             </div>
 
         </div>
     </div>
-    <!-- PAGE 2 -->
+ 
     <div id="page2" class="relative min-h-screen bg-black text-white flex items-center justify-center overflow-hidden"
         style="background: url('lantern.jpg') center/cover no-repeat;">
 
-        <!-- OVERLAY -->
+      
         <div class="absolute inset-0 bg-black/70"></div>
 
-        <!-- CONTENT -->
+  
         <div class="relative z-10 w-full max-w-5xl px-4 space-y-16">
 
-            <!-- JUDUL -->
+           
             <h2 class="reveal font-brush text-4xl md:text-6xl text-center">
                 Our Moment
             </h2>
 
-            <!-- ITEM 1 -->
+         
             <div class="flex items-center gap-4 reveal">
 
-                <!-- FOTO -->
+            
                 <div class="w-1/2 overflow-hidden rounded-2xl">
                     <img src="gambar1.jpeg" class="w-full h-[220px] md:h-[400px] object-cover">
                 </div>
 
-                <!-- TEKS -->
+             
                 <div class="w-1/2">
                     <p class="text-xs md:text-sm opacity-70 mb-1">Awal Kenal</p>
                     <h3 class="font-serif text-sm md:text-2xl leading-tight">
@@ -326,7 +326,6 @@
 
             </div>
 
-            <!-- ITEM 2 -->
             <div class="flex items-center gap-4 reveal">
 
                 <div class="w-1/2 overflow-hidden rounded-2xl">
@@ -342,7 +341,6 @@
 
             </div>
 
-            <!-- ITEM 3 -->
             <div class="flex items-center gap-4 reveal">
 
                 <div class="w-1/2 overflow-hidden rounded-2xl">
@@ -362,23 +360,21 @@
 
     </div>
 
-    <!-- PAGE 3 -->
 <div id="page3"
     class="relative min-h-screen text-white flex items-center justify-center overflow-hidden bg-cover bg-center"
     style="background-image: url('bg3.png');">
 
-    <!-- OVERLAY (biar teks tetap kebaca) -->
+
     <div class="absolute inset-0 bg-black/60"></div>
 
-    <!-- CONTENT -->
+ 
     <div class="relative z-10 w-full max-w-4xl px-6 text-center space-y-10">
 
-        <!-- JUDUL -->
+    
         <h2 class="reveal font-brush text-4xl md:text-6xl">
             Location
         </h2>
 
-        <!-- MAP -->
         <div class="fade-down-map overflow-hidden rounded-2xl shadow-lg">
 
             <iframe
@@ -388,7 +384,7 @@
 
         </div>
 
-        <!-- ALAMAT -->
+     
         <div class="fade-up-text">
             <p class="text-sm md:text-lg leading-relaxed opacity-90">
                 Desa Sumberan RT 02 RW 01<br>
@@ -400,35 +396,35 @@
     </div>
 
 </div>
-<!-- PAGE 4 -->
+
 <div id="page4"
     class="relative min-h-screen text-white flex items-center justify-center overflow-hidden">
 
-    <!-- VIDEO BACKGROUND -->
+
     <video autoplay muted loop playsinline
         class="absolute inset-0 w-full h-full object-cover z-0">
         <source src="2.mp4" type="video/mp4">
     </video>
 
-    <!-- OVERLAY -->
+    
     <div class="absolute inset-0 bg-black/70 z-10"></div>
 
-    <!-- CONTENT -->
+ 
     <div class="relative z-20 w-full max-w-xl px-6 text-center space-y-8">
 
-        <!-- JUDUL -->
+      
         <h2 class="fade-up-soft font-brush text-4xl md:text-6xl">
             Wedding Gift
         </h2>
 
-        <!-- DESKRIPSI -->
+     
         <p class="fade-up-soft text-sm md:text-base leading-relaxed opacity-90 italic">
             Kehadiran serta doa restu Anda adalah kebahagiaan bagi kami.
             Apabila berhalangan untuk hadir, 
             Anda tetap dapat menyampaikan doa dan kasih melalui:
         </p>
 
-        <!-- CARD -->
+      
         <div class="zoom-soft glass rounded-2xl p-6 space-y-4">
 
             <p class="text-lg font-serif tracking-wide">
@@ -443,7 +439,7 @@
                 a.n Muhammad Abdullah Arridho
             </p>
 
-            <!-- BUTTON -->
+     
             <button onclick="copyRek()"
                 class="mt-4 px-6 py-3 rounded-full text-sm font-semibold
                        bg-white text-black border border-white
@@ -454,7 +450,7 @@
 
         </div>
 
-        <!-- PENUTUP -->
+    
         <p class="fade-up-soft text-xs opacity-70">
             Terima kasih atas doa dan restu yang diberikan 🙏
         </p>
@@ -474,7 +470,7 @@
                 init() {
                     document.body.classList.add('no-scroll');
 
-                    // 🔥 SCROLL REVEAL
+                   
                     window.addEventListener("scroll", () => {
                         const reveals = document.querySelectorAll(".reveal, .fade-down-map, .fade-up-text, .fade-up-soft, .zoom-soft");
 
@@ -499,7 +495,7 @@
                         setTimeout(() => {
                             this.opened = true;
 
-                            // animasi halaman awal
+                       
                             setTimeout(() => {  
                                 document.querySelectorAll('.fade-up, .fade-down, .zoom-in').forEach(el => {
                                     el.classList.remove('show');
@@ -520,7 +516,7 @@
                         behavior: 'smooth'
                     });
 
-                    // animasi Page 1 (tetap stagger)
+                  
                     setTimeout(() => {
                         document.querySelectorAll('#page1 .fade-up').forEach(el => {
                             el.classList.remove('show');
