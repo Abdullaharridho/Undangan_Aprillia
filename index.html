@@ -18,7 +18,19 @@
 
     <style>
         body {
+
             font-family: 'Poppins', sans-serif;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .font-serif {
@@ -34,6 +46,10 @@
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
+        }
+
+        .font-brush {
+            font-family: 'Allura', cursive;
         }
 
         .fade-up.show {
@@ -225,6 +241,74 @@
 
         </div>
     </div>
+    <!-- PAGE 2 -->
+    <div id="page2" class="relative min-h-screen bg-black text-white flex items-center justify-center overflow-hidden"
+        style="background: url('lantern.jpg') center/cover no-repeat;">
+
+        <!-- OVERLAY -->
+        <div class="absolute inset-0 bg-black/70"></div>
+
+        <!-- CONTENT -->
+        <div class="relative z-10 w-full max-w-5xl px-4 space-y-16">
+
+            <!-- JUDUL -->
+            <h2 class="reveal font-brush text-4xl md:text-6xl text-center">
+                Our Moment
+            </h2>
+
+            <!-- ITEM 1 -->
+            <div class="flex items-center gap-4 reveal">
+
+                <!-- FOTO -->
+                <div class="w-1/2 overflow-hidden rounded-2xl">
+                    <img src="gambar1.jpeg" class="w-full h-[220px] md:h-[400px] object-cover">
+                </div>
+
+                <!-- TEKS -->
+                <div class="w-1/2">
+                    <p class="text-xs md:text-sm opacity-70 mb-1">Awal Kenal</p>
+                    <h3 class="font-serif text-sm md:text-2xl leading-tight">
+                        1 Bulan Sebelum Dekat
+                    </h3>
+                </div>
+
+            </div>
+
+            <!-- ITEM 2 -->
+            <div class="flex items-center gap-4 reveal">
+
+                <div class="w-1/2 overflow-hidden rounded-2xl">
+                    <img src="gambar2.jpeg" class="w-full h-[220px] md:h-[400px] object-cover">
+                </div>
+
+                <div class="w-1/2">
+                    <p class="text-xs md:text-sm opacity-70 mb-1">Mulai Dekat</p>
+                    <h3 class="font-serif text-sm md:text-2xl">
+                        30 Agustus 2018
+                    </h3>
+                </div>
+
+            </div>
+
+            <!-- ITEM 3 -->
+            <div class="flex items-center gap-4 reveal">
+
+                <div class="w-1/2 overflow-hidden rounded-2xl">
+                    <img src="gambar3.jpeg" class="w-full h-[220px] md:h-[400px] object-cover">
+                </div>
+
+                <div class="w-1/2">
+                    <p class="text-xs md:text-sm opacity-70 mb-1">Tunangan</p>
+                    <h3 class="font-serif text-sm md:text-2xl">
+                        22 Juni 2024
+                    </h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <script>
         function invitation() {
@@ -236,6 +320,22 @@
 
                 init() {
                     document.body.classList.add('no-scroll');
+
+                    // 🔥 SCROLL REVEAL
+                    window.addEventListener("scroll", () => {
+                        const reveals = document.querySelectorAll(".reveal");
+
+                        reveals.forEach(el => {
+                            const windowHeight = window.innerHeight;
+                            const elementTop = el.getBoundingClientRect().top;
+
+                            const triggerPoint = 100;
+
+                            if (elementTop < windowHeight - triggerPoint) {
+                                el.classList.add("show");
+                            }
+                        });
+                    });
                 },
 
                 submitName() {
@@ -246,7 +346,7 @@
                         setTimeout(() => {
                             this.opened = true;
 
-                            // trigger animasi awal di halaman lain
+                            // animasi halaman awal
                             setTimeout(() => {
                                 document.querySelectorAll('.fade-up, .fade-down, .zoom-in').forEach(el => {
                                     el.classList.remove('show');
@@ -266,16 +366,17 @@
                         behavior: 'smooth'
                     });
 
-                    // animasi teks Page 1 satu per satu
+                    // animasi Page 1 (tetap stagger)
                     setTimeout(() => {
                         document.querySelectorAll('#page1 .fade-up').forEach(el => {
                             el.classList.remove('show');
-                            el.classList.add('opacity-0'); // sembunyikan dulu
+                            el.classList.add('opacity-0');
 
                             const delay = parseFloat(el.style.animationDelay || 0) * 1000;
+
                             setTimeout(() => {
                                 el.classList.remove('opacity-0');
-                                el.classList.add('show'); // trigger animasi fade-up
+                                el.classList.add('show');
                             }, delay);
                         });
                     }, 600);
