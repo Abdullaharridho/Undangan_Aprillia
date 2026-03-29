@@ -473,20 +473,21 @@ Yaitu bertunangan!!!!
             </p>
 
      
-            <button onclick="copyRek()"
+            <button onclick="copyRek1()"
                 class="mt-4 px-6 py-3 rounded-full text-sm font-semibold
                        bg-white text-black border border-white
                        shadow-lg
                        hover:bg-transparent hover:text-white transition duration-300">
                 Salin Nomor Rekening
             </button>
+            <p class="fade-up-soft text-xs opacity-70">
+            Terima kasih atas doa dan restu yang diberikan 🙏
+        </p>
 
         </div>
 
     
-        <p class="fade-up-soft text-xs opacity-70">
-            Terima kasih atas doa dan restu yang diberikan 🙏
-        </p>
+        
 
     </div>
 
@@ -568,6 +569,17 @@ Yaitu bertunangan!!!!
         }
         function copyRek() {
     const text = "650601028976504";
+
+    navigator.clipboard.writeText(text)
+        .then(() => {
+            alert("Nomor rekening berhasil disalin ✅");
+        })
+        .catch(() => {
+            alert("Gagal menyalin, silakan copy manual 🙏");
+        });
+}
+        function copyRek1() {
+    const text = "08975915181";
 
     navigator.clipboard.writeText(text)
         .then(() => {
