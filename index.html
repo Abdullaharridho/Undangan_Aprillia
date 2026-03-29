@@ -166,6 +166,9 @@
 </head>
 
 <body class="bg-black">
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
     <div x-data="invitation()" x-init="init()" class="min-h-screen relative overflow-hidden">
 
@@ -534,11 +537,33 @@ Yaitu bertunangan!!!!
                         this.guestName = this.inputName;
                         this.showPopup = false;
 
+                        // 🔥 PLAY MUSIC SAAT NAMA DIISI
+                        const music = document.getElementById("bgMusic");
+                        if (music) {
+                            music.play().catch(() => {
+                                console.log("Autoplay diblokir browser");
+                            });
+                            if (music) {
+                                music.volume = 0;
+                                music.play();
+
+                                let vol = 0;
+                                const fade = setInterval(() => {
+                                    if (vol < 1) {
+                                        vol += 0.05;
+                                        music.volume = vol;
+                                    } else {
+                                        clearInterval(fade);
+                                    }
+                                }, 200);
+                            }
+                        }
+
                         setTimeout(() => {
                             this.opened = true;
 
-                       
-                            setTimeout(() => {  
+                            // animasi halaman awal
+                            setTimeout(() => {
                                 document.querySelectorAll('.fade-up, .fade-down, .zoom-in').forEach(el => {
                                     el.classList.remove('show');
                                     void el.offsetWidth;
